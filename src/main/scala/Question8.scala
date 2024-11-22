@@ -1,7 +1,7 @@
 import org.apache.spark.sql.{SparkSession, Row}
 import org.apache.spark.rdd.RDD
 
-object CSVReaderApp {
+object Question8 {
   def main(args: Array[String]): Unit = {
 
     // Initialize Spark session
@@ -11,11 +11,11 @@ object CSVReaderApp {
       .getOrCreate()
 
     // Path to the CSV file
-    val filePath = "/Users/yaseenbabamohammad/Desktop/Scala_DE_Training/Day14Assignment/src/main/resources/converted_data.csv"
+    val filePath = "src/main/resources/converted_data.csv"
 
-    // Read the CSV file with header option enabled to skip the first row (header)
+    // Read the CSV file with header option enabled and schema inference
     val df = spark.read
-      .option("header", "true")  // Ensures the first row is treated as a header
+      .option("header", "true")   // Ensures the first row is treated as a header
       .option("inferSchema", "true") // Automatically infers the schema for numeric fields
       .csv(filePath)
 
@@ -24,28 +24,13 @@ object CSVReaderApp {
 
     // Process each row in the RDD
     rdd.foreach { row =>
-      try {
-        // Example: Extract "id" column and convert it to an integer
-        val idString = row.getAs[String]("id")
+        // Extract columns with their appropriate types
+        val id = row.getAs[Int]("id")                // Extract id as an integer
+        val name = row.getAs[String]("name")         // Extract name as a string
+        val age = row.getAs[Int]("age")       // Extract other as a string
 
-        // Try parsing "id" as an integer (handle invalid rows gracefully)
-        val id = if (idString != null && idString.forall(_.isDigit)) {
-          idString.toInt  // Safely parse to integer if valid
-        } else {
-          throw new NumberFormatException(s"Invalid ID: $idString") // Handle invalid values
-        }
-
-        // Further processing with valid "id"
-        println(s"Processing row with valid ID: $id")
-
-      } catch {
-        case e: NumberFormatException =>
-          // Handle invalid rows (skip or log them)
-          println(s"Skipping invalid row due to error: ${e.getMessage}")
-        case e: Exception =>
-          // Catch any other exceptions that may occur
-          println(s"Unexpected error while processing row: ${row}, Error: ${e.getMessage}")
-      }
+        // Further processing with valid data
+        println(s"Processing row - ID: $id, Name: $name, Age: $age")
     }
 
     // Stop the Spark session

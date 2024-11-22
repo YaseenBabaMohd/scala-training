@@ -14,6 +14,7 @@ object Question2 {
     val rdd2: RDD[Int] = sc.parallelize(data2)
 
     val rdd2Broadcast = sc.broadcast(rdd2.collect())
+   // val cartesianProductRDD: RDD[(Int, Int)] = rdd1.cartesian(rdd2)
 
     // Compute the Cartesian product without using cartesian() method
     val cartesianProduct: RDD[(Int, Int)] = rdd1.flatMap(x => rdd2Broadcast.value.map(y => (x, y)))
