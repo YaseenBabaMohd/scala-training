@@ -30,7 +30,7 @@ object Question8 {
         val age = row.getAs[Int]("age")       // Extract other as a string
 
         // Further processing with valid data
-        println(s"Processing row - ID: $id, Name: $name, Age: $age")
+        println(s" ID: $id, Name: $name, Age: $age")
     }
 
     // Stop the Spark session
