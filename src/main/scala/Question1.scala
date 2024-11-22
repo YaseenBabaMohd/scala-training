@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession
 // write a Spark program to count the total number of words in the collection using RDD transformations and actions.
 object Question1 {
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
+d    val spark = SparkSession.builder()
       .master("local[*]")
       .getOrCreate()
 
