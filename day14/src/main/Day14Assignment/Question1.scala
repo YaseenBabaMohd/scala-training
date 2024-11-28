@@ -1,4 +1,4 @@
-import org.apache.spark.sql.SparkSession
+import
 
 
 
@@ -11,7 +11,6 @@ object Question1 {
       .getOrCreate()
 
     val sc = spark.sparkContext
-
     val data = List("Hello World", "Hello Scala", "Hello Spark", "Hello Hadoop")
     val rdd = sc.parallelize(data)
 
