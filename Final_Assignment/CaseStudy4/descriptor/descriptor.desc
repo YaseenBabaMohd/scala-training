@@ -1,0 +1,9 @@
+
+¾
+SalesReport.proto" 
+SalesReport
+store (	RstoreId
+dept (	RdeptId
+	date (	R	timestamp!
+Weekly_Sales (RWeeklySales
+	IsHoliday (R	IsHolidaybproto3
