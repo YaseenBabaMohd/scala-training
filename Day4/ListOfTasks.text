@@ -1,0 +1,24 @@
+Concepts to be Implemented:
+Encapsulation:
+
+Class, Object, Instance Variables.
+Constructors: Primary and Secondary.
+Inheritance:
+
+Implement superclass and subclass, ensuring access to superclass methods.
+Work with traits.
+Define an abstract class and implement it in a subclass.
+Implement a class that inherits from multiple traits and an abstract class.
+Abstraction:
+
+Demonstrate use of access specifiers in Scala.
+Polymorphism:
+
+Implement constructor overloading.
+Method overloading with methods of default parameters.
+Variable number of parameters in a method.
+A method with different parameter types.
+Demonstrate method overriding.
+Additional Features:
+
+Implicit Conversion and Implicit Classes.
