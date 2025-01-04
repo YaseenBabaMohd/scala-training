@@ -1,0 +1,10 @@
+
+# Ignore embedded Git repositories
+Corporate Allocation/Corporate Equipment Allocation/.git/
+Corporate Allocation/NotificationService/.git/
+
+# You can add other general files or directories you want to ignore here
+# For example:
+# *.log       # Ignore all log files
+# *.tmp       # Ignore temporary files
+# node_modules/  # Ignore node_modules folder (if it's a Node.js project)
