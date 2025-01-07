@@ -8,20 +8,16 @@ import javax.inject.Inject
 
 class AuthController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-//  def login: Action[JsValue] = Action(parse.json) { request =>
-//    val username = (request.body \ "username").as[String]
-//    val password = (request.body \ "password").as[String]
-//
-//    // Replace with your authentication logic
-//    if (username == "admin" && password == "password") {
-//      val token = JwtUtil.generateToken(username)
-//      Ok(Json.obj("token" -> token))
-//    } else {
-//      Unauthorized("Invalid credentials")
-//    }
-//  }
+  def login: Action[JsValue] = Action(parse.json) { request =>
+    val username = (request.body \ "username").as[String]
+    val password = (request.body \ "password").as[String]
 
-  def login = Action { implicit request: Request[AnyContent] =>
-    Ok("Login Page")
+    // Replace with your authentication logic
+    if (username == "admin" && password == "password") {
+      val token = JwtUtil.generateToken(username)
+      Ok(Json.obj("token" -> token))
+    } else {
+      Unauthorized("Invalid credentials")
+    }
   }
 }
